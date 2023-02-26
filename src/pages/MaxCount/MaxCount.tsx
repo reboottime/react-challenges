@@ -19,12 +19,12 @@ export const MaxCount = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (remainingTime <= 1) {
-        clearInterval(timer);
-      } else {
+      if (remainingTime > 0) {
         setRemainingTime((t) => t - 1);
+      } else {
+        clearInterval(timer);
       }
-    }, 10000);
+    }, 1000);
 
     return () => {
       clearInterval(timer);
